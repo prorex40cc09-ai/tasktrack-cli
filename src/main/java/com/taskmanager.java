@@ -57,18 +57,17 @@ public class TaskManager {
 
     public void completeTask(int index) {
 
-        if (index < 0 || index >= tasks.size()) {
-            System.out.println("Invalid task number.");
-            return;
-        }
-
-        tasks.get(index).complete();
-
-        storage.saveTasks(tasks);
-
-        System.out.println("Task marked as completed.");
+    if (index < 0 || index >= tasks.size()) {
+        System.out.println("Invalid task number.");
+        return;
     }
 
+    tasks.get(index).complete();
+
+    storage.saveTasks(tasks);
+
+    System.out.println("Task marked as completed.");
+}
     public void deleteTask(int index) {
 
         if (index < 0 || index >= tasks.size()) {
