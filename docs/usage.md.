@@ -1,1 +1,31 @@
+# TaskTrack CLI Usage
 
+TaskTrack is a simple command line task manager written in Java.
+
+## Compile
+
+javac src/main/java/com/tasktrack/*.java
+
+## Run
+
+java com.tasktrack.Main
+
+## Features
+
+- Add tasks
+- List tasks
+- Complete tasks
+- Delete tasks
+- Automatic file storage
+
+## Example Output
+
+0 [ ] Learn GitHub
+1 [x] Finish Java project
+2 [ ] Study GitHub Actions
+
+## File Storage
+
+Tasks are stored in:
+
+tasks.txt
