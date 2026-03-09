@@ -14,11 +14,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Java
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
+          distribution: 'temurin'
           java-version: '21'
 
       - name: Compile Java files
-        run: javac $(find src/main/java -name "*.java")
+        run: javac src/main/java/com/tasktrack/*.java
