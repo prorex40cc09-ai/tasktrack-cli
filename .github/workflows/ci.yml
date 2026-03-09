@@ -1,1 +1,24 @@
+name: Java CI
 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Compile project
+        run: javac src/main/java/com/tasktrack/*.java
