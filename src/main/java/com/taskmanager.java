@@ -1,6 +1,7 @@
 package com.tasktrack;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class TaskManager {
 
@@ -8,33 +9,22 @@ public class TaskManager {
     private FileStorage storage;
 
     public TaskManager() {
+
         storage = new FileStorage();
         tasks = storage.loadTasks();
+
+        if (tasks == null) {
+            tasks = new ArrayList<>();
+        }
     }
 
     public void addTask(String description) {
 
-    Task task = new Task(description);
-    tasks.add(task);
+        Task task = new Task(description);
+        tasks.add(task);
 
         storage.saveTasks(tasks);
-        
- public void listTasks() {
 
-    if (tasks.isEmpty()) {
-        System.out.println("No tasks found.");
-        return;
-    }
-
-    for (int i = 0; i < tasks.size(); i++) {
-
-        Task task = tasks.get(i);
-
-        String status = task.isCompleted() ? "[x]" : "[ ]";
-
-        System.out.println(i + " " + status + " " + task.getDescription());
-    }
-}
         System.out.println("Task added: " + description);
     }
 
@@ -57,17 +47,18 @@ public class TaskManager {
 
     public void completeTask(int index) {
 
-    if (index < 0 || index >= tasks.size()) {
-        System.out.println("Invalid task number.");
-        return;
+        if (index < 0 || index >= tasks.size()) {
+            System.out.println("Invalid task number.");
+            return;
+        }
+
+        tasks.get(index).complete();
+
+        storage.saveTasks(tasks);
+
+        System.out.println("Task marked as completed.");
     }
 
-    tasks.get(index).complete();
-
-    storage.saveTasks(tasks);
-
-    System.out.println("Task marked as completed.");
-}
     public void deleteTask(int index) {
 
         if (index < 0 || index >= tasks.size()) {
