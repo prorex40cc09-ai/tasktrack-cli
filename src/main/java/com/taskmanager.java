@@ -14,13 +14,13 @@ public class TaskManager {
 
     public void addTask(String description) {
 
-        Task task = new Task(description);
-        tasks.add(task);
+    Task task = new Task(description);
+    tasks.add(task);
 
-        storage.saveTasks(tasks);
+    storage.saveTasks(tasks);
 
-        System.out.println("Task added: " + description);
-    }
+    System.out.println("Task added: " + description);
+}
 
     public void listTasks() {
 
