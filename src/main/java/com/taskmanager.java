@@ -18,7 +18,23 @@ public class TaskManager {
         tasks.add(task);
 
         storage.saveTasks(tasks);
+        
+ public void listTasks() {
 
+    if (tasks.isEmpty()) {
+        System.out.println("No tasks found.");
+        return;
+    }
+
+    for (int i = 0; i < tasks.size(); i++) {
+
+        Task task = tasks.get(i);
+
+        String status = task.isCompleted() ? "[x]" : "[ ]";
+
+        System.out.println(i + " " + status + " " + task.getDescription());
+    }
+}
         System.out.println("Task added: " + description);
     }
 
