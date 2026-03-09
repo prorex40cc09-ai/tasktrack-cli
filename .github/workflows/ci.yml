@@ -2,9 +2,11 @@ name: Java CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -17,8 +19,8 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
+          distribution: temurin
           java-version: '21'
 
-      - name: Compile Java files
-        run: javac src/main/java/com/tasktrack/*.java
+      - name: Compile project
+        run: javac $(find src/main/java -name "*.java")
