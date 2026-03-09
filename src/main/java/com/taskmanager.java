@@ -14,8 +14,8 @@ public class TaskManager {
 
     public void addTask(String description) {
 
-        Task task = new Task(description);
-        tasks.add(task);
+    Task task = new Task(description);
+    tasks.add(task);
 
         storage.saveTasks(tasks);
         
